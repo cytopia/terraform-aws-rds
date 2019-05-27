@@ -2,6 +2,8 @@
 
 Terraform module which creates RDS resources on AWS.
 
+[![Build Status](https://travis-ci.com/cytopia/terraform-aws-rds.svg?branch=master)](https://travis-ci.com/cytopia/terraform-aws-rds)
+
 ---
 
 **IMPORTANT INFORMATION**
@@ -10,6 +12,8 @@ This module is an identical<sup>[1]</sup> remake of [terraform-aws-modules/terra
 The only difference is that it does not use any (sub-)modules for better path/dependency handling.
 
 <sup>[1]: It uses the same inputs, outputs and defaults to keep compatibility.</sup>
+
+See [CHANGELOG.md](CHANGELOG.md) for more details.
 
 ---
 

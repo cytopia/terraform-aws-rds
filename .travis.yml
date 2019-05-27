@@ -1,0 +1,30 @@
+---
+
+###
+### Travis settings
+###
+sudo: required
+services:
+  - docker
+
+
+###
+### Installation
+###
+before_install: true
+install: true
+
+###
+### Linting
+###
+before_script:
+  - make generate
+  - git diff --quiet || { echo "Build Changes"; git diff; git status; false; }
+
+
+###
+### Testing
+###
+script:
+  - make lint
+  - make test

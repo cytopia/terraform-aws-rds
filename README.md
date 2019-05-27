@@ -13,7 +13,7 @@ The only difference is that it does not use any (sub-)modules for better path/de
 
 <sup>[1]: It uses the same inputs, outputs and defaults to keep compatibility.</sup>
 
-See [CHANGELOG.md](CHANGELOG.md) for more details.
+See [CHANGELOG.md](https://github.com/cytopia/terraform-aws-rds/blob/master/CHANGELOG.md) for more details.
 
 ---
 
@@ -124,13 +124,13 @@ module "db" {
 
 ## Examples
 
-* [Complete RDS example for MySQL](https://github.com/terraform-aws-modules/terraform-aws-rds/tree/master/examples/complete-mysql)
-* [Complete RDS example for PostgreSQL](https://github.com/terraform-aws-modules/terraform-aws-rds/tree/master/examples/complete-postgres)
-* [Complete RDS example for Oracle](https://github.com/terraform-aws-modules/terraform-aws-rds/tree/master/examples/complete-oracle)
-* [Complete RDS example for MSSQL](https://github.com/terraform-aws-modules/terraform-aws-rds/tree/master/examples/complete-mssql)
-* [Enhanced monitoring example](https://github.com/terraform-aws-modules/terraform-aws-rds/tree/master/examples/enhanced-monitoring)
-* [Replica RDS example for MySQL](https://github.com/terraform-aws-modules/terraform-aws-rds/tree/master/examples/replica-mysql)
-* [Replica RDS example for PostgreSQL](https://github.com/terraform-aws-modules/terraform-aws-rds/tree/master/examples/replica-postgres)
+* [Complete RDS example for MySQL](https://github.com/cytopia/terraform-aws-rds/tree/master/examples/complete-mysql)
+* [Complete RDS example for PostgreSQL](https://github.com/cytopia/terraform-aws-rds/tree/master/examples/complete-postgres)
+* [Complete RDS example for Oracle](https://github.com/cytopia/terraform-aws-rds/tree/master/examples/complete-oracle)
+* [Complete RDS example for MSSQL](https://github.com/cytopia/terraform-aws-rds/tree/master/examples/complete-mssql)
+* [Enhanced monitoring example](https://github.com/cytopia/terraform-aws-rds/tree/master/examples/enhanced-monitoring)
+* [Replica RDS example for MySQL](https://github.com/cytopia/terraform-aws-rds/tree/master/examples/replica-mysql)
+* [Replica RDS example for PostgreSQL](https://github.com/cytopia/terraform-aws-rds/tree/master/examples/replica-postgres)
 
 ## Notes
 
@@ -226,10 +226,16 @@ module "db" {
 
 ## Authors
 
+#### This module
+
+Currently maintained by [these awesome contributors](https://github.com/cytopia/terraform-aws-rds/graphs/contributors).
+
+#### Upstream module
+
 Currently maintained by [these awesome contributors](https://github.com/terraform-aws-modules/terraform-aws-rds/graphs/contributors).
 Migrated from `terraform-community-modules/tf_aws_rds`, where it was maintained by [these awesome contributors](https://github.com/terraform-community-modules/tf_aws_rds/graphs/contributors).
 Module managed by [Anton Babenko](https://github.com/antonbabenko).
 
 ## License
 
-Apache 2 Licensed. See LICENSE for full details.
+Apache 2 Licensed. See [LICENSE](https://github.com/cytopia/terraform-aws-rds/blob/master/LICENSE) for full details.

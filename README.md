@@ -3,17 +3,19 @@
 Terraform module which creates RDS resources on AWS.
 
 [![Build Status](https://travis-ci.com/cytopia/terraform-aws-rds.svg?branch=master)](https://travis-ci.com/cytopia/terraform-aws-rds)
+[![Tag](https://img.shields.io/github/tag/cytopia/terraform-aws-rds.svg)](https://github.com/cytopia/terraform-aws-rds/releases)
+[![Terraform](https://img.shields.io/badge/Terraform--registry-aws--iam--rds-brightgreen.svg)](https://registry.terraform.io/modules/cytopia/rds/aws/)
 
 ---
 
 **IMPORTANT INFORMATION**
 
-This module is an identical<sup>[1]</sup> remake of [terraform-aws-modules/terraform-aws-rds](https://github.com/terraform-aws-modules/terraform-aws-rds).
+This module is an almost identical<sup>[1]</sup> copy of **[terraform-aws-modules/terraform-aws-rds](https://github.com/terraform-aws-modules/terraform-aws-rds)** (credits and effort belong to official module).
 The only difference is that it does not use any (sub-)modules for better path/dependency handling.
 
 <sup>[1]: It uses the same inputs, outputs and defaults to keep compatibility.</sup>
 
-See [CHANGELOG.md](CHANGELOG.md) for more details.
+See [CHANGELOG.md](https://github.com/cytopia/terraform-aws-rds/blob/master/CHANGELOG.md) for more details.
 
 ---
 
@@ -124,13 +126,13 @@ module "db" {
 
 ## Examples
 
-* [Complete RDS example for MySQL](https://github.com/terraform-aws-modules/terraform-aws-rds/tree/master/examples/complete-mysql)
-* [Complete RDS example for PostgreSQL](https://github.com/terraform-aws-modules/terraform-aws-rds/tree/master/examples/complete-postgres)
-* [Complete RDS example for Oracle](https://github.com/terraform-aws-modules/terraform-aws-rds/tree/master/examples/complete-oracle)
-* [Complete RDS example for MSSQL](https://github.com/terraform-aws-modules/terraform-aws-rds/tree/master/examples/complete-mssql)
-* [Enhanced monitoring example](https://github.com/terraform-aws-modules/terraform-aws-rds/tree/master/examples/enhanced-monitoring)
-* [Replica RDS example for MySQL](https://github.com/terraform-aws-modules/terraform-aws-rds/tree/master/examples/replica-mysql)
-* [Replica RDS example for PostgreSQL](https://github.com/terraform-aws-modules/terraform-aws-rds/tree/master/examples/replica-postgres)
+* [Complete RDS example for MySQL](https://github.com/cytopia/terraform-aws-rds/tree/master/examples/complete-mysql)
+* [Complete RDS example for PostgreSQL](https://github.com/cytopia/terraform-aws-rds/tree/master/examples/complete-postgres)
+* [Complete RDS example for Oracle](https://github.com/cytopia/terraform-aws-rds/tree/master/examples/complete-oracle)
+* [Complete RDS example for MSSQL](https://github.com/cytopia/terraform-aws-rds/tree/master/examples/complete-mssql)
+* [Enhanced monitoring example](https://github.com/cytopia/terraform-aws-rds/tree/master/examples/enhanced-monitoring)
+* [Replica RDS example for MySQL](https://github.com/cytopia/terraform-aws-rds/tree/master/examples/replica-mysql)
+* [Replica RDS example for PostgreSQL](https://github.com/cytopia/terraform-aws-rds/tree/master/examples/replica-postgres)
 
 ## Notes
 
@@ -155,7 +157,7 @@ module "db" {
 | apply\_immediately | Specifies whether any database modifications are applied immediately, or during the next maintenance window | string | `"false"` | no |
 | auto\_minor\_version\_upgrade | Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window | string | `"true"` | no |
 | availability\_zone | The Availability Zone of the RDS instance | string | `""` | no |
-| backup\_retention\_period | The days to retain backups for | string | `"1"` | no |
+| backup\_retention\_period | The days to retain backups for | string | `"7"` | no |
 | character\_set\_name | (Optional) The character set name to use for DB encoding in Oracle instances. This can't be changed. See Oracle Character Sets Supported in Amazon RDS for more information | string | `""` | no |
 | copy\_tags\_to\_snapshot | On delete, copy all Instance tags to the final snapshot (if final_snapshot_identifier is specified) | string | `"false"` | no |
 | create\_db\_instance | Whether to create a database instance | string | `"true"` | no |
@@ -186,7 +188,7 @@ module "db" {
 | parameters | A list of DB parameters (map) to apply | list | `[]` | no |
 | publicly\_accessible | Bool to control if instance is publicly accessible | string | `"false"` | no |
 | replicate\_source\_db | Specifies that this resource is a Replicate database, and to use this value as the source database. This correlates to the identifier of another Amazon RDS Database to replicate. | string | `""` | no |
-| skip\_final\_snapshot | Determines whether a final DB snapshot is created before the DB instance is deleted. If true is specified, no DBSnapshot is created. If false is specified, a DB snapshot is created before the DB instance is deleted, using the value from final_snapshot_identifier | string | `"true"` | no |
+| skip\_final\_snapshot | Determines whether a final DB snapshot is created before the DB instance is deleted. If true is specified, no DBSnapshot is created. If false is specified, a DB snapshot is created before the DB instance is deleted, using the value from final_snapshot_identifier | string | `"false"` | no |
 | snapshot\_identifier | Specifies whether or not to create this database from a snapshot. This correlates to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05. | string | `""` | no |
 | storage\_encrypted | Specifies whether the DB instance is encrypted | string | `"false"` | no |
 | storage\_type | One of 'standard' (magnetic), 'gp2' (general purpose SSD), or 'io1' (provisioned IOPS SSD). The default is 'io1' if iops is specified, 'standard' if not. Note that this behaviour is different from the AWS web console, where the default is 'gp2'. | string | `"gp2"` | no |
@@ -226,10 +228,16 @@ module "db" {
 
 ## Authors
 
+#### This module
+
+Currently maintained by [these awesome contributors](https://github.com/cytopia/terraform-aws-rds/graphs/contributors).
+
+#### Upstream module
+
 Currently maintained by [these awesome contributors](https://github.com/terraform-aws-modules/terraform-aws-rds/graphs/contributors).
 Migrated from `terraform-community-modules/tf_aws_rds`, where it was maintained by [these awesome contributors](https://github.com/terraform-community-modules/tf_aws_rds/graphs/contributors).
 Module managed by [Anton Babenko](https://github.com/antonbabenko).
 
 ## License
 
-Apache 2 Licensed. See LICENSE for full details.
+Apache 2 Licensed. See [LICENSE](https://github.com/cytopia/terraform-aws-rds/blob/master/LICENSE) for full details.

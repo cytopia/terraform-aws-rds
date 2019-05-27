@@ -13,6 +13,8 @@ The only difference is that it does not use any (sub-)modules for better path/de
 
 <sup>[1]: It uses the same inputs, outputs and defaults to keep compatibility.</sup>
 
+See [CHANGELOG.md](CHANGELOG.md) for more details.
+
 ---
 
 These types of resources are supported:

@@ -1,5 +1,6 @@
 CURRENT_DIR = $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 TF_EXAMPLES = $(sort $(dir $(wildcard $(CURRENT_DIR)examples/*/)))
+TF_VERSION  = 0.11.14
 
 .PHONY: help lint generate test
 
@@ -13,7 +14,7 @@ lint:
 	@echo "################################################################################"
 	@echo "# Terraform fmt"
 	@echo "################################################################################"
-	@if docker run -it --rm -v "$(CURRENT_DIR):/t:ro" --workdir "/t" hashicorp/terraform:light \
+	@if docker run -it --rm -v "$(CURRENT_DIR):/t:ro" --workdir "/t" hashicorp/terraform:$(TF_VERSION) \
 		fmt -check=true -diff=true -write=false -list=true .; then \
 		echo "OK"; \
 	else \
@@ -42,7 +43,7 @@ test:
 		echo "------------------------------------------------------------"; \
 		echo "# Terraform init"; \
 		echo "------------------------------------------------------------"; \
-		if docker run -it --rm -v "$(CURRENT_DIR):/t" --workdir "$${DOCKER_PATH}" hashicorp/terraform:light \
+		if docker run -it --rm -v "$(CURRENT_DIR):/t" --workdir "$${DOCKER_PATH}" hashicorp/terraform:$(TF_VERSION) \
 			init \
 				-verify-plugins=true \
 				-lock=false \
@@ -55,22 +56,22 @@ test:
 			echo "OK"; \
 		else \
 			echo "Failed"; \
-			docker run -it --rm -v "$(CURRENT_DIR):/t" --workdir "$${DOCKER_PATH}" --entrypoint=rm hashicorp/terraform:light -rf .terraform/ || true; \
+			docker run -it --rm -v "$(CURRENT_DIR):/t" --workdir "$${DOCKER_PATH}" --entrypoint=rm hashicorp/terraform:$(TF_VERSION) -rf .terraform/ || true; \
 			exit 1; \
 		fi; \
 		echo; \
 		echo "------------------------------------------------------------"; \
 		echo "# Terraform validate"; \
 		echo "------------------------------------------------------------"; \
-		if docker run -it --rm -v "$(CURRENT_DIR):/t" --workdir "$${DOCKER_PATH}" hashicorp/terraform:light \
+		if docker run -it --rm -v "$(CURRENT_DIR):/t" --workdir "$${DOCKER_PATH}" hashicorp/terraform:$(TF_VERSION) \
 			validate \
 				-check-variables=true $(ARGS) \
 				.; then \
 			echo "OK"; \
-			docker run -it --rm -v "$(CURRENT_DIR):/t" --workdir "$${DOCKER_PATH}" --entrypoint=rm hashicorp/terraform:light -rf .terraform/ || true; \
+			docker run -it --rm -v "$(CURRENT_DIR):/t" --workdir "$${DOCKER_PATH}" --entrypoint=rm hashicorp/terraform:$(TF_VERSION) -rf .terraform/ || true; \
 		else \
 			echo "Failed"; \
-			docker run -it --rm -v "$(CURRENT_DIR):/t" --workdir "$${DOCKER_PATH}" --entrypoint=rm hashicorp/terraform:light -rf .terraform/ || true; \
+			docker run -it --rm -v "$(CURRENT_DIR):/t" --workdir "$${DOCKER_PATH}" --entrypoint=rm hashicorp/terraform:$(TF_VERSION) -rf .terraform/ || true; \
 			exit 1; \
 		fi; \
 		echo; \

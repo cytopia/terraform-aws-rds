@@ -2,7 +2,7 @@
 # RDS locals
 # --------------------------------------------------------------------------------------------------
 locals {
-  is_mssql = "${element(split("-",var.engine), 0) == "sqlserver"}"
+  is_mssql = "${element(split("-", var.engine), 0) == "sqlserver"}"
 }
 
 locals {
@@ -15,7 +15,7 @@ locals {
 # RDS instance (generic)
 # --------------------------------------------------------------------------------------------------
 resource "aws_db_instance" "this" {
-  count = "${var.create_db_instance && !local.is_mssql ? 1 : 0}"
+  count = "${var.create_db_instance && ! local.is_mssql ? 1 : 0}"
 
   # Database (server) defines
   identifier        = "${var.identifier}"

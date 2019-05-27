@@ -155,7 +155,7 @@ module "db" {
 | apply\_immediately | Specifies whether any database modifications are applied immediately, or during the next maintenance window | string | `"false"` | no |
 | auto\_minor\_version\_upgrade | Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window | string | `"true"` | no |
 | availability\_zone | The Availability Zone of the RDS instance | string | `""` | no |
-| backup\_retention\_period | The days to retain backups for | string | `"1"` | no |
+| backup\_retention\_period | The days to retain backups for | string | `"7"` | no |
 | character\_set\_name | (Optional) The character set name to use for DB encoding in Oracle instances. This can't be changed. See Oracle Character Sets Supported in Amazon RDS for more information | string | `""` | no |
 | copy\_tags\_to\_snapshot | On delete, copy all Instance tags to the final snapshot (if final_snapshot_identifier is specified) | string | `"false"` | no |
 | create\_db\_instance | Whether to create a database instance | string | `"true"` | no |
@@ -186,7 +186,7 @@ module "db" {
 | parameters | A list of DB parameters (map) to apply | list | `[]` | no |
 | publicly\_accessible | Bool to control if instance is publicly accessible | string | `"false"` | no |
 | replicate\_source\_db | Specifies that this resource is a Replicate database, and to use this value as the source database. This correlates to the identifier of another Amazon RDS Database to replicate. | string | `""` | no |
-| skip\_final\_snapshot | Determines whether a final DB snapshot is created before the DB instance is deleted. If true is specified, no DBSnapshot is created. If false is specified, a DB snapshot is created before the DB instance is deleted, using the value from final_snapshot_identifier | string | `"true"` | no |
+| skip\_final\_snapshot | Determines whether a final DB snapshot is created before the DB instance is deleted. If true is specified, no DBSnapshot is created. If false is specified, a DB snapshot is created before the DB instance is deleted, using the value from final_snapshot_identifier | string | `"false"` | no |
 | snapshot\_identifier | Specifies whether or not to create this database from a snapshot. This correlates to the snapshot ID you'd find in the RDS console, e.g: rds:production-2015-06-26-06-05. | string | `""` | no |
 | storage\_encrypted | Specifies whether the DB instance is encrypted | string | `"false"` | no |
 | storage\_type | One of 'standard' (magnetic), 'gp2' (general purpose SSD), or 'io1' (provisioned IOPS SSD). The default is 'io1' if iops is specified, 'standard' if not. Note that this behaviour is different from the AWS web console, where the default is 'gp2'. | string | `"gp2"` | no |

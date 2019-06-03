@@ -19,6 +19,7 @@ install: true
 ### Linting
 ###
 before_script:
+  - make lint
   - make gen
   - git diff --quiet || { echo "Build Changes"; git diff; git status; false; }
 
@@ -27,5 +28,4 @@ before_script:
 ### Testing
 ###
 script:
-  - make lint
   - make test

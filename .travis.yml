@@ -14,11 +14,12 @@ services:
 before_install: true
 install: true
 
+
 ###
 ### Linting
 ###
 before_script:
-  - make generate
+  - make gen
   - git diff --quiet || { echo "Build Changes"; git diff; git status; false; }
 
 
